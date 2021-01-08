@@ -25,4 +25,20 @@ describe('Modash', () => {
       ).toEqual('There was one catch, and that was catch-22');
     });
   });
+
+  describe('`camelCase()`', () => {
+    it('camelizes string with spaces', () => {
+      const string = 'customer responded at';
+      expect(
+        Modash.camelCase(string)
+      ).toEqual('customerRespondedAt');
+    });
+
+    it('camelizes string with underscores', () => {
+      const string = 'customer_responded_at';
+      expect(
+        Modash.camelCase(string)
+      ).toEqual('customerRespondedAt');
+    });
+  });
 });
