@@ -1,9 +1,19 @@
-describe('My test suite', () => {
-  it('`true` should be `true`', () => {
-    expect(true).toBe(true);
-  });
+import Modash from './Modash.js';
 
-  it('`false` should be `false`', () => {
-    expect(false).toBe(false);
+describe('Modash', () => {
+  describe('`truncate()`', () => {
+    const string = 'there was one catch, and that was CATCH-22';
+
+    it('truncates a string', () => {
+      expect(
+        Modash.truncate(string, 19)
+      ).toEqual('there was one catch...');
+    });
+
+    it('no-ops if <= length', () => {
+      expect(
+        Modash.truncate(string, string.length)
+      ).toEqual(string);
+    });
   });
 });
